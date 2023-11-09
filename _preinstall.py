@@ -1,8 +1,11 @@
+import os
+
 # download punkt model
 import nltk
 nltk.download('punkt')
 
 # download xtts model
-import coqui_tts
+os.environ["COQUI_TOS_AGREED"] = "1"
+from TTS.api import TTS
 model_name = "tts_models/multilingual/multi-dataset/xtts_v1.1"
-tts_model = coqui_tts.load_model(model_name, "", False)
+TTS(model_name=model_name, progress_bar=True, gpu=False)
