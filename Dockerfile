@@ -63,11 +63,11 @@ RUN pip install --no-cache-dir  --ignore-installed -r requirements.txt -U
 RUN test -d /root/.cache || mkdir -p /root/.cache
 COPY cache/. /root/.cache/
 
-COPY _preinstall.py /app/_preinstall.py
-RUN python3 _preinstall.py
-
 COPY main.py /app/main.py
 COPY audio_tools.py /app/audio_tools.py
 COPY coqui_tts.py /app/coqui_tts.py
+
+COPY _preinstall.py /app/_preinstall.py
+RUN python3 _preinstall.py
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

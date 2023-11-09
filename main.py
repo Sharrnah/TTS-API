@@ -280,7 +280,6 @@ def xtts_wav(text: str,
         return None
 
     headers = {'Content-Disposition': 'attachment; filename="xtts.wav"'}
-
     return Response(content=audio, headers=headers, media_type="audio/wav")
 
 
