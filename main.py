@@ -252,8 +252,10 @@ def generate_suno_wav(text_prompt: str, history_prompt: Optional[str] = None, se
 
     if audio is None:
         return None
-
-    return Response(content=audio, media_type="audio/wav")
+        
+    headers = {'Content-Disposition': 'attachment; filename="bark_audio.wav"'}
+    return Response(content=audio, headers=headers, media_type="audio/wav")
+    #return Response(content=audio, media_type="audio/wav")
 
 
 @torch.no_grad()
