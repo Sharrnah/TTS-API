@@ -18,6 +18,7 @@ model_sample_rate_mapping = {
     "tts_models/en/multi-dataset/tortoise-v2": 24000,
     "tts_models/multilingual/multi-dataset/your_tts": 16000,
     "tts_models/???/fairseq/vits": 16000,
+    "tts_models/multilingual/multi-dataset/xtts_v2": 24000,
     "tts_models/multilingual/multi-dataset/xtts_v1.1": 24000,
     "tts_models/multilingual/multi-dataset/xtts_v1": 24000,
 
@@ -96,10 +97,11 @@ def split_abbreviations(text):
     return new_text
 
 
-model_name = "tts_models/multilingual/multi-dataset/xtts_v1.1"
+model_name = "tts_models/multilingual/multi-dataset/xtts_v2"
 tts_model = load_model(model_name, "", use_gpu)
 
 
+@torch.no_grad()
 def tts_generation_xtts(text, language='en', replace_abbreviations=False, clone_wav=None):
     global SAMPLE_RATE
     global tts_model, tts_vc, use_gpu
@@ -133,6 +135,7 @@ def tts_generation_xtts(text, language='en', replace_abbreviations=False, clone_
     return wav_bytes
 
 
+@torch.no_grad()
 def tts_generation(arg_model_name, text, speaker=None, language=None, replace_abbreviations=False, emotion=None, speed=1.0, clone_wav=None, voice_dir=None, wav_sample_rate=None):
     global SAMPLE_RATE
     global tts_model, tts_vc, model_name, use_gpu

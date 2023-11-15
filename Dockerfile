@@ -68,6 +68,7 @@ RUN python3 _preinstall.py
 
 COPY main.py /app/main.py
 COPY audio_tools.py /app/audio_tools.py
+COPY bark_tts.py /app/bark_tts.py
 COPY coqui_tts.py /app/coqui_tts.py
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
