@@ -17,7 +17,7 @@ numpy==1.24.3
 k_diffusion @ git+https://github.com/Sharrnah/k-diffusion.git
 #TTS @ https://github.com/coqui-ai/TTS/archive/refs/tags/v0.19.1.zip
 #TTS @ https://github.com/idiap/coqui-ai-TTS/archive/refs/heads/remove-pandas.zip
-TTS @ https://github.com/Sharrnah/coqui-ai-TTS/archive/refs/heads/remove-pandas.zip
+TTS @ https://github.com/Sharrnah/TTS/archive/refs/heads/fix-win.zip
 clean-fid
 clip
 
